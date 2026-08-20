@@ -1,0 +1,129 @@
+<svg viewBox="0 0 920 640" width="920" height="640" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-label="Architecture of agentic-loop: sources are compiled by scripts into generated runtime instructions, and a five-phase mission loop with a gate program at every exit">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- canvas -->
+  <rect x="0" y="0" width="920" height="640" rx="14" fill="#f8fafc" stroke="#e2e8f0"/>
+
+  <!-- ===== band 1: compile pipeline ===== -->
+  <text x="40" y="46" font-size="15" font-weight="700" fill="#0f172a">The compile pipeline</text>
+  <text x="40" y="66" font-size="13" fill="#475569">You edit sources. Scripts generate everything the agent reads. Nothing generated is ever hand-edited.</text>
+
+  <!-- box A: sources -->
+  <rect x="40" y="88" width="250" height="150" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="40" y="88" width="250" height="34" rx="10" fill="#eff6ff"/>
+  <rect x="40" y="112" width="250" height="10" fill="#eff6ff"/>
+  <text x="56" y="110" font-size="14" font-weight="700" fill="#1d4ed8">you edit</text>
+  <text x="56" y="142" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">disciplines/</text>
+  <text x="56" y="162" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">regimes/</text>
+  <text x="56" y="182" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">schemas/</text>
+  <text x="56" y="202" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">preferences/</text>
+  <text x="56" y="226" font-size="12" fill="#64748b">prose and policy, versioned here</text>
+
+  <!-- arrow A -> B -->
+  <line x1="290" y1="163" x2="348" y2="163" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="319" y="152" font-size="12" fill="#475569" text-anchor="middle">compiled by</text>
+
+  <!-- box B: compose -->
+  <rect x="350" y="88" width="250" height="150" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="350" y="88" width="250" height="34" rx="10" fill="#f5f3ff"/>
+  <rect x="350" y="112" width="250" height="10" fill="#f5f3ff"/>
+  <text x="366" y="110" font-size="14" font-weight="700" fill="#6d28d9">compose/ scripts</text>
+  <text x="366" y="142" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">bootstrap.py</text>
+  <text x="366" y="162" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">enter_phase.py</text>
+  <text x="366" y="182" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">gate_check.py</text>
+  <text x="366" y="202" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">validate_handoff.py</text>
+  <text x="366" y="226" font-size="12" fill="#64748b">tested Python, stdlib only, no LLM</text>
+
+  <!-- arrow B -> C -->
+  <line x1="600" y1="163" x2="658" y2="163" stroke="#475569" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="629" y="152" font-size="12" fill="#475569" text-anchor="middle">writes</text>
+
+  <!-- box C: project runtime -->
+  <rect x="660" y="88" width="220" height="150" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+  <rect x="660" y="88" width="220" height="34" rx="10" fill="#f0fdf4"/>
+  <rect x="660" y="112" width="220" height="10" fill="#f0fdf4"/>
+  <text x="676" y="110" font-size="14" font-weight="700" fill="#047857">your project</text>
+  <text x="676" y="142" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">.loop/MISSION.md</text>
+  <text x="676" y="162" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">.loop/STATE.json</text>
+  <text x="676" y="182" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="#334155">.loop/runtime/&lt;phase&gt;/</text>
+  <text x="676" y="226" font-size="12" fill="#b45309">generated, read-only by rule</text>
+
+  <!-- ledger feedback arrow (loop band up to sources) -->
+  <path d="M 165 386 C 160 330, 160 290, 165 244" fill="none" stroke="#2563eb" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow-blue)"/>
+  <text x="36" y="300" font-size="12" fill="#2563eb">your answers append</text>
+  <text x="36" y="316" font-size="12" fill="#2563eb">to the ledger; the next</text>
+  <text x="36" y="332" font-size="12" fill="#2563eb">mission asks less</text>
+
+  <!-- ===== band 2: mission loop ===== -->
+  <text x="40" y="300" font-size="15" font-weight="700" fill="#0f172a" transform="translate(200,0)">The mission loop</text>
+  <text x="240" y="320" font-size="13" fill="#475569">Five phases. A program, not the agent, checks every exit.</text>
+
+  <!-- phase boxes -->
+  <g font-size="14" font-weight="600" text-anchor="middle">
+    <rect x="40" y="386" width="160" height="58" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="120" y="412" fill="#0f172a">Research</text>
+    <text x="120" y="431" font-size="11" font-weight="400" fill="#64748b">sources banked, synthesis</text>
+
+    <rect x="260" y="386" width="160" height="58" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="340" y="412" fill="#0f172a">Design</text>
+    <text x="340" y="431" font-size="11" font-weight="400" fill="#64748b">ADRs and contracts</text>
+
+    <rect x="480" y="386" width="160" height="58" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="560" y="412" fill="#0f172a">Implementation</text>
+    <text x="560" y="431" font-size="11" font-weight="400" fill="#64748b">code against contracts</text>
+
+    <rect x="700" y="386" width="160" height="58" rx="10" fill="#ffffff" stroke="#94a3b8"/>
+    <text x="780" y="412" fill="#0f172a">Validation</text>
+    <text x="780" y="431" font-size="11" font-weight="400" fill="#64748b">verdicts, evidence</text>
+  </g>
+
+  <!-- gates between phases -->
+  <g font-size="11" text-anchor="middle">
+    <line x1="200" y1="415" x2="258" y2="415" stroke="#059669" stroke-width="1.6" marker-end="url(#arrow-green)"/>
+    <rect x="207" y="392" width="44" height="16" rx="8" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="229" y="404" fill="#047857">gate</text>
+
+    <line x1="420" y1="415" x2="478" y2="415" stroke="#059669" stroke-width="1.6" marker-end="url(#arrow-green)"/>
+    <rect x="427" y="392" width="44" height="16" rx="8" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="449" y="404" fill="#047857">gate</text>
+
+    <line x1="640" y1="415" x2="698" y2="415" stroke="#059669" stroke-width="1.6" marker-end="url(#arrow-green)"/>
+    <rect x="647" y="392" width="44" height="16" rx="8" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="669" y="404" fill="#047857">gate</text>
+  </g>
+
+  <!-- debug loop -->
+  <rect x="700" y="500" width="160" height="58" rx="10" fill="#fffbeb" stroke="#f59e0b"/>
+  <text x="780" y="526" font-size="14" font-weight="600" fill="#92400e" text-anchor="middle">Debug</text>
+  <text x="780" y="545" font-size="11" fill="#a16207" text-anchor="middle">hypothesis ledger, fix</text>
+  <line x1="755" y1="444" x2="755" y2="498" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+  <text x="745" y="475" font-size="11" fill="#b45309" text-anchor="end">fail</text>
+  <line x1="805" y1="498" x2="805" y2="446" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+  <text x="815" y="475" font-size="11" fill="#b45309">re-validate</text>
+
+  <!-- mode + handoff footnotes -->
+  <g font-size="12.5" fill="#475569">
+    <text x="40" y="500">Each gate runs in one of two modes, set per phase in MISSION.md:</text>
+    <rect x="40" y="512" width="46" height="20" rx="10" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="63" y="526" fill="#1d4ed8" text-anchor="middle" font-size="11.5">auto</text>
+    <text x="94" y="526">the agent advances itself on PASS</text>
+    <rect x="40" y="540" width="56" height="20" rx="10" fill="#fdf2f8" stroke="#fbcfe8"/>
+    <text x="68" y="554" fill="#be185d" text-anchor="middle" font-size="11.5">paired</text>
+    <text x="104" y="554">PASS waits for your word before the mission moves</text>
+    <text x="40" y="590">Every passing gate writes a crash-safe handoff first. Kill the session at any point;</text>
+    <text x="40" y="608">the next agent resumes from the handoff, not from memory.</text>
+  </g>
+</svg>
