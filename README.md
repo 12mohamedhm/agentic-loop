@@ -71,10 +71,22 @@ git clone https://github.com/12mohamedhm/agentic-loop.git
 cd /path/to/your/project && bash /path/to/agentic-loop/install.sh
 ```
 
-Then, inside your project, tell the agent: `/loop`. Bootstrap detects init
-versus resume, verifies the environment loudly, and prints the single next
-command. From there the agent drives and you answer questions when they
-surface.
+Then, inside your project, tell the agent: `/mission`. Bootstrap detects
+init versus resume, verifies the environment loudly, and prints the single
+next command. From there the agent drives and you answer questions when
+they surface.
+
+You can hand the mission context up front instead of waiting for the
+interview:
+
+```
+/mission migrate the billing cron to events; Stripe stays the source of truth; no new services
+```
+
+The text is written verbatim into the mission draft as an "Operator seed"
+section. The interview still runs, but it starts from your words: anything
+the seed already answers arrives as a recommended answer, and only the
+open questions reach you.
 
 ## The commands
 
@@ -83,7 +95,7 @@ file states its own completion criterion.
 
 | Command | What it does |
 |---|---|
-| `/loop` | Adopt or resume the loop in this project. |
+| `/mission [context]` | Adopt or resume the loop here. Optional free text seeds the mission draft and steers the interview. |
 | `/enter` | Compile the current phase and load only the printed reading list. |
 | `/gate` | Run the deterministic exit check; advance on PASS per the phase's mode. |
 | `/handoff` | Write and validate a crash-safe handoff right now. |
@@ -157,7 +169,11 @@ tells you to.
 
 ## License and credit
 
-MIT, see [LICENSE](LICENSE). The agent-writing doctrine in
+MIT, see [LICENSE](LICENSE). Two adapted sources, both MIT: the
+agent-writing doctrine in
 [constitution/writing-for-agents.md](constitution/writing-for-agents.md)
-is adapted from [mattpocock/skills](https://github.com/mattpocock/skills)
-(MIT).
+comes from [mattpocock/skills](https://github.com/mattpocock/skills), and
+the human-facing writing standard in
+[constitution/writing-for-humans.md](constitution/writing-for-humans.md)
+comes from the unslop skill in
+[cursor/plugins](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop).

@@ -32,4 +32,4 @@ echo
 echo "Adopt (from SKILL.md):"
 echo "  1. Run: python $REPO/compose/bootstrap.py --project-dir $PROJECT"
 echo "  2. Obey what it prints."
-echo "Or, in Claude Code here: /loop"
+echo "Or, in Claude Code here: /mission (optionally: /mission <context to seed the interview>)"

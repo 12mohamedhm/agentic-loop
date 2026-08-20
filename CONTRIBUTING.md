@@ -29,10 +29,13 @@ overwritten and deserves to be.
    [compose/tests](compose/tests). Prose changes need every pointer they
    touch to still resolve to a real file.
 
-3. Write prose the way
-   [constitution/writing-for-agents.md](constitution/writing-for-agents.md)
-   demands: positive phrasing, a completion criterion on every step, one
-   meaning one home.
+3. Write prose the way the constitution demands. Instructions for agents
+   follow
+   [writing-for-agents.md](constitution/writing-for-agents.md): positive
+   phrasing, a completion criterion on every step, one meaning one home.
+   Anything a human reads follows
+   [writing-for-humans.md](constitution/writing-for-humans.md): plain
+   words, named facts, no AI tells.
 
 ## Constraints that will not move
 

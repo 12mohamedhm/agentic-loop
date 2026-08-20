@@ -52,14 +52,14 @@ are logged as warnings, never blockers.
 ## PREF-007: Communication format — unslop
 Scope: GLOBAL   Status: ACTIVE
 Provenance: founder seeding session, 2026-08-19, Q7 (escalated twice to
-pin the exact source)
+pin the exact source: the unslop skill in cursor/plugins pstack,
+https://github.com/cursor/plugins/tree/main/pstack/skills/unslop).
+2026-08-19: standard vendored into this repo at
+constitution/writing-for-humans.md, which is now the governing copy.
 Preference: Every report to the human (gate summaries, escalations,
-mission reports) follows the unslop skill from the pstack plugin —
-https://github.com/cursor/plugins/tree/main/pstack/skills/unslop — cut AI
-tells (puffery, AI vocabulary, em dashes, inline-header lists, sycophancy,
-hedging stacks, filler), plain words, active voice, concrete facts over
-vibes, and a self-audit pass ("what makes this obviously AI generated?")
-before sending.
+mission reports) follows constitution/writing-for-humans.md — plain words,
+active voice, concrete facts over vibes, the tells table cleared, and the
+self-audit pass before sending.
 
 ## PREF-008: Default mode vector — pair design only
 Scope: GLOBAL   Status: ACTIVE

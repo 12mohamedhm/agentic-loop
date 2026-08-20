@@ -34,7 +34,7 @@ def check_env():
     return notes
 
 
-def init_loop(project, loop):
+def init_loop(project, loop, seed=""):
     for d in TREE:
         (loop / d).mkdir(parents=True, exist_ok=True)
     state = {"phase": "research", "mission_confirmed": False,
@@ -50,6 +50,11 @@ def init_loop(project, loop):
     (loop / "STATE.json").write_text(json.dumps(state, indent=2))
     mission = (REPO / "schemas" / "mission.md").read_text()
     mission = mission.replace("{{NAME}}", project.name)
+    if seed.strip():
+        mission += ("\n## Operator seed (verbatim, unconfirmed)\n"
+                    "<!-- raw operator context from bootstrap --seed; grill "
+                    "from it, never treat it as confirmed intent -->\n"
+                    f"{seed.strip()}\n")
     (loop / "MISSION.md").write_text(mission)
     (loop / "loop.json").write_text(json.dumps({"system_repo": str(REPO)}, indent=2))
 
@@ -59,6 +64,9 @@ def main():
     ap.add_argument("--project-dir", default=".")
     ap.add_argument("--new-mission", action="store_true",
                     help="archive the finished .loop and start fresh")
+    ap.add_argument("--seed", default="",
+                    help="operator context written verbatim into the mission "
+                         "draft; the grill starts from it")
     args = ap.parse_args()
 
     project = Path(args.project_dir).resolve()
@@ -77,6 +85,9 @@ def main():
             if (project / ".handoffs").exists() else []
         print(f"\nRESUME: existing loop found — phase '{state['phase']}', "
               f"mission_confirmed={state.get('mission_confirmed')}")
+        if args.seed.strip():
+            print("  SEED IGNORED: this mission is already in flight. Raise "
+                  "the context at the next gate, or restart with --new-mission.")
         if handoffs:
             print(f"  1. Read {handoffs[-1]} and follow its Receiver Synthesis "
                   f"Protocol (disk wins).")
@@ -92,8 +103,11 @@ def main():
         loop.rename(project / f".loop-archived-{stamp}")
         print(f"  archived previous mission to .loop-archived-{stamp}/")
 
-    init_loop(project, loop)
+    init_loop(project, loop, seed=args.seed)
     print(f"\nINIT: new loop at {loop}")
+    if args.seed.strip():
+        print("  seed context written to MISSION.md ('Operator seed' section) "
+              "— grill from it; it narrows the questions, it never skips them.")
     if not seeded:
         print("  0. The preference ledger is unseeded. Run a one-time seeding "
               "grill (disciplines/grilling.md, all questions INTENT): testing "

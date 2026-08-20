@@ -10,17 +10,20 @@ required.
 
 Everything the agent does cycles through three commands:
 
-1. **Bootstrap** (`/loop`) — adopt or resume the loop in a project. It
+1. **Bootstrap** (`/mission`) — adopt or resume the loop in a project. It
    detects whether a mission is in flight and prints the one next step.
+   Add free text (`/mission rewrite the importer, keep the CSV contract`)
+   and it is written into the mission draft as an "Operator seed"; the
+   interview then starts from your words instead of a blank page.
 2. **Enter** (`/enter`) — compile the instructions for the current phase
    and hand the agent an exact reading list. The agent loads only that.
 3. **Gate** (`/gate`) — a program, not the agent's opinion, checks whether
    the phase's required artifacts exist and are complete. Only a passing
    gate advances the mission.
 
-**What you actually type:** `/loop` once per project, then let the agent
-drive; `/gate` any time you want to know whether the current phase would
-pass right now.
+**What you actually type:** `/mission` once per project (with your context
+after it, if you have some), then let the agent drive; `/gate` any time you
+want to know whether the current phase would pass right now.
 
 ## The mode vector and how to flip it
 
@@ -82,8 +85,10 @@ maintenance.
 
 ## One mission, ten lines
 
-1. You: `bash <repo>/install.sh` inside your project, then `/loop`.
-2. Agent interviews you on the mission draft; you answer, say "confirmed".
+1. You: `bash <repo>/install.sh` inside your project, then
+   `/mission <what you want, in a sentence or three>`.
+2. Agent interviews you on the draft, starting from your seed; you answer
+   what's left, say "confirmed".
 3. Agent enters Research, spawns readers, banks sources, writes synthesis.
 4. `/gate` passes research (auto mode) — mission advances, handoff written.
 5. Agent enters Design; asks you two intent questions the ledger missed.
