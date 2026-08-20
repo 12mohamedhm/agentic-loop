@@ -7,27 +7,44 @@ deterministic gates, a preference ledger that makes elicitation incremental,
 and crash-safe handoffs at every boundary.
 
 Grounded in organizational research (hub-and-spoke saturation, hidden-profile
-information pooling, mission command, Fagan inspection, I-PASS handoffs) and
-in agent-writing doctrine adapted from Matt Pocock's skills (MIT). See
+information pooling, mission command, Fagan inspection, I-PASS handoffs). See
 `constitution/principles.md` for the invariants and their provenance.
 
-## Layout
-- `SKILL.md` — sole agent entry point
-- `constitution/` — how everything else is written; the invariants
-- `disciplines/` — invariant workflow cores (the only prose you edit)
-- `regimes/` — mode x phase bindings + reversibility policy (data you tune)
-- `schemas/` — regime-invariant artifact contracts
-- `compose/` — bootstrap, phase compiler, gates (code you test)
-- `hosts/` — per-harness capability profiles (discovery vs citation tools)
-- `preferences/` — your ledger; grows across all projects
-- `templates/` — worker mandate stubs consumed by the compiler
+## Quick start (60 seconds)
 
-## Quick start
-    python compose/bootstrap.py --project-dir /path/to/project
+    git clone https://github.com/12mohamedhm/agentic-loop.git
+    cd /path/to/your/project
+    bash /path/to/agentic-loop/install.sh
+
+Then, in Claude Code inside your project: `/loop` — and obey what it prints.
+Human operators: read `docs/OPERATORS-GUIDE.md` — the three verbs, the mode
+vector, gates, escalations, and a worked example, in plain English.
+
+## Layout
+
+| Layer | What it is |
+|---|---|
+| `SKILL.md` | sole agent entry point |
+| `constitution/` | how everything else is written; the invariants |
+| `disciplines/` | invariant workflow cores (the only prose you edit) |
+| `regimes/` | mode x phase bindings + reversibility policy (data you tune) |
+| `schemas/` | regime-invariant artifact contracts |
+| `compose/` | bootstrap, phase compiler, gates (code you test) |
+| `hosts/` | per-harness capability profiles |
+| `preferences/` | your ledger; grows across all projects |
+| `templates/` | worker mandate stubs consumed by the compiler |
+| `.claude/commands/` | slash commands installed into projects by `install.sh` |
+| `docs/` | human-facing operator documentation |
+
+Generated files under a project's `.loop/runtime/` are compiler output —
+edit `disciplines/` and `regimes/`, never the runtime copies.
 
 ## Tests
+
     python -m pytest compose/tests -q
 
-## Publish (from this directory)
-    git remote add origin git@github.com:<you>/agentic-loop.git
-    git push -u origin main
+## License and notice
+
+MIT — see `LICENSE`. The agent-writing doctrine in
+`constitution/writing-for-agents.md` is adapted from
+[mattpocock/skills](https://github.com/mattpocock/skills) (MIT).
