@@ -1,0 +1,8 @@
+{
+  "host": "claude-code",
+  "discovery_tools": {"tools": ["WebSearch", "WebFetch"], "lane_cap": "NOMINATED",
+    "note": "summarizer-mediated or snippet output; never citable"},
+  "citation_tools": {"tools": ["Bash: curl -L --fail --output <path>", "Bash: wget"], "lane": "CITABLE",
+    "note": "bank raw bytes to .loop/research/sources/, record sha256, extract locally; render-assisted retrieval stays NOMINATED unless the rendered output is itself banked and hashed"},
+  "todo_note": "if a task-ledger tool is absent, announce loudly and keep the ledger in the handoff chain"
+}

@@ -1,0 +1,55 @@
+{
+  "binding_slots": ["ANSWERER", "INTERROGATOR", "ESCALATION_SET", "BUDGET_WORKERS", "BUDGET_ROUNDS", "AUDIT_RATE"],
+  "defaults": {
+    "paired": {
+      "ANSWERER": "the human",
+      "INTERROGATOR": "the hub, grilling the human",
+      "ESCALATION_SET": "everything routes to the human at the point it arises",
+      "BUDGET_WORKERS": "6",
+      "BUDGET_ROUNDS": "6",
+      "AUDIT_RATE": "10%"
+    },
+    "auto": {
+      "ANSWERER": "ledger first, then the hub (owner) justifying from mission and banked sources",
+      "INTERROGATOR": "a fresh-context opus griller holding only mission, ledger, and the artifact",
+      "ESCALATION_SET": "INTENT gaps and policy-gated verbs only, batched to the next gate as a questionnaire",
+      "BUDGET_WORKERS": "10",
+      "BUDGET_ROUNDS": "8",
+      "AUDIT_RATE": "20%"
+    }
+  },
+  "phases": {
+    "research": {
+      "discipline": "research.md",
+      "grilling": "protocol scoping only",
+      "outputs": ["research/protocol.md", "research/briefs/", "research/synthesis.md"],
+      "overrides": {"paired": {"BUDGET_WORKERS": "4"}, "auto": {}}
+    },
+    "design": {
+      "discipline": "design.md",
+      "grilling": "full design grill at the gate",
+      "outputs": ["design/sources-of-record.md", "design/adr/", "contracts/", "validation/checklist.md", "design/critique.md", "design/implementability.md"],
+      "overrides": {
+        "auto": {"INTERROGATOR": "a fresh-context FRONTIER clone holding only mission, ledger, and the design artifacts"}
+      }
+    },
+    "implementation": {
+      "discipline": "implementation.md",
+      "grilling": "none - an underspecified contract is a deviation, not an interview",
+      "outputs": ["implementation/reports/", "implementation/deviations/"],
+      "overrides": {"paired": {"ESCALATION_SET": "deviations and merge decisions route to the human; routine progress rides pushes"}, "auto": {}}
+    },
+    "validation": {
+      "discipline": "validation.md",
+      "grilling": "none",
+      "outputs": ["validation/verdicts/"],
+      "overrides": {"paired": {"ANSWERER": "the human adjudicates ring 3"}, "auto": {}}
+    },
+    "debug": {
+      "discipline": "debug.md",
+      "grilling": "deviation adjudication only",
+      "outputs": ["debug/ledgers/", "postmortems/"],
+      "overrides": {"paired": {}, "auto": {}}
+    }
+  }
+}

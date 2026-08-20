@@ -1,0 +1,8 @@
+{
+  "tiers": {
+    "autopilot": "reversible by a superseding commit or artifact: worker spawns, branch writes inside a write_set, artifact creation, fetch-to-disk, telemetry",
+    "gate": "novel or cross-boundary: merges to main, contract amendments, superseding ADRs, checklist changes, mode-vector changes mid-mission, any deviation resolution",
+    "hard_deny": "human-only verbs, no agent exception: credentials and secrets, spend and purchases, tags and releases and deploys, permanent deletion, external publication, hardware and account settings"
+  },
+  "rule": "classify by reversibility first; when a verb fits two tiers, the stricter tier holds; hard_deny verbs are announced and queued for the human, never simulated"
+}
