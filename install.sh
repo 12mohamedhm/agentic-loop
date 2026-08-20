@@ -20,11 +20,14 @@ for note in bootstrap.check_env():
     print(f"  {note}")
 PY
 
-# Register the slash commands in the project.
-mkdir -p "$PROJECT/.claude/commands"
-for cmd in "$REPO"/.claude/commands/*.md; do
-  ln -sf "$cmd" "$PROJECT/.claude/commands/$(basename "$cmd")"
-done
+# Register the slash commands in the project. Inside the repo itself the
+# files are already in place; linking a file onto itself would destroy it.
+if [ "$REPO" != "$PROJECT" ]; then
+  mkdir -p "$PROJECT/.claude/commands"
+  for cmd in "$REPO"/.claude/commands/*.md; do
+    ln -sf "$cmd" "$PROJECT/.claude/commands/$(basename "$cmd")"
+  done
+fi
 printf '%s\n' "$REPO" > "$PROJECT/.claude/loop-repo"
 
 echo "Installed: $(ls "$REPO"/.claude/commands/*.md | wc -l | tr -d ' ') commands -> $PROJECT/.claude/commands (system repo: $REPO)"
